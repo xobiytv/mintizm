@@ -136,7 +136,7 @@
 <body>
     <form id="surveyForm">
         <div class="div-top">
-           <h3>Asosiy CashFlow</h1>  <a href="./index.html">Orqaga qaytish</a>
+           <h3>Admin CashFlow</h1>  <a href="./index.html">Orqaga qaytish</a>
         </div>
         
         <br>
@@ -170,22 +170,16 @@
         <select class="custom-select" id="type" name="type" required
             aria-label="Example select with button addon">
             <option selected>Turini tanlang</option>
-            <option value="IlmTown tushlik">IlmTown tushlik</option>
-            <option value="Mobilgrafiya">Mobilgrafiya</option>
-            <option value="Rus tili">Rus tili</option>
-            <option value="Ingliz tili">Ingliz tili</option>
-            <option value="Ingliz tili kids">Ingliz tili kids</option>
-            <option value="BiznesTown tushlik">BiznesTown tushlik</option>
-            <option value="Oylik">Oylik</option>
-            <option value="Kitob">Kitob</option>
-            <option value="reklama">Reklama</option>
-            <option value="BiznesTown arenda">BiznesTown arenda</option>
             <option value="IlmTown Xo'jalik">IlmTown Xo'jalik</option>
             <option value="BiznesTown Xo'jalik">BiznesTown Xo'jalik</option>
-            <option value="Naqd karta-karta naqd">Naqd karta-karta naqd</option>
-            <option value="ILM Town - kommunal">ILM Town - kommunal</option>
-            <option value="Biznes Town - kommunal">Biznes Town - kommunal</option>
-            <option value="Hodimlarni o'qitish uchun ">Hodimlarni o'qitish uchun </option>
+            <option value="IlmTown tushlik">IlmTown tushlik</option>
+            <option value="BiznesTown tushlik">BiznesTown tushlik</option>
+            <option value="Kitob">Kitob</option>
+            <option value="Suv">Suv</option>
+            <option value="Qaytim mobilagrafiya">Qaytim mobilagrafiya</option>
+            <option value="Qaytim ingliz tili">Qaytim ingliz tili</option>
+            <option value="Qaytim ingliz tili kids">Qaytim ingliz tili kids</option>
+
         </select>
         <!-- <input type="text"  required> -->
 
@@ -207,7 +201,7 @@
             var loader = document.getElementById("loader");
             submitButton.disabled = true;
             loader.style.display = "block";
-            fetch('https://script.google.com/macros/s/AKfycbzpSO9VA_oseSofgSdNf-2CMgeHJR9eY1RGggIm8Rk-SNSKXWw4YCGr1NcL4OltS7C8/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbzLyLdgAvqHD_RbW1Q5LTPO9Q2aBDQoFwmNJ-tHrw845F1fBqaxGzUaG7KPhZZljb1c/exec', {
                 method: "POST",
                 body: formData
             })
