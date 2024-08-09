@@ -69,16 +69,17 @@
             height: 100px;
         }
 
-        .div-top{
+        .div-top {
             display: flex;
-            justify-content:space-between  ;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .div-top a{
+        .div-top a {
             color: red;
-            font-weight: bold   ;
+            font-weight: bold;
         }
+
         input[type="submit"] {
             background-color: #4caf50;
             color: #fff;
@@ -136,11 +137,12 @@
 <body>
     <form id="surveyForm">
         <div class="div-top">
-           <h3>Asosiy CashFlow</h1>  <a href="./index.html">Orqaga qaytish</a>
+            <h3>Asosiy CashFlow</h3> <a href="./index.html">Orqaga qaytish</a>
         </div>
-        
+        <div class="loader" id="loader" style="display: none;"></div>
+        <div id="successMessage" style="display: none; color: green; text-align: center; margin-top: 20px; font-size: 24px;">Ma'lumot
+            yuborildi!</div>
         <br>
-
 
         <label for="summa">Summa:</label>
         <input type="number" id="summa" name="summa" required>
@@ -156,7 +158,6 @@
             <option value="Plastik">Plastik</option>
             <option value="Hisob raqam">Hisob raqam</option>
         </select>
-        <!-- <input type="text" > -->
 
         <label for="direction">Yo'nalish:</label>
         <select class="custom-select" id="direction" name="direction" required
@@ -165,10 +166,9 @@
             <option value="Daromad">Daromad</option>
             <option value="Xarajat">Xarajat</option>
         </select>
-        <!-- <input type="text"  required> -->
+
         <label for="direction">Turi:</label>
-        <select class="custom-select" id="type" name="type" required
-            aria-label="Example select with button addon">
+        <select class="custom-select" id="type" name="type" required aria-label="Example select with button addon">
             <option selected>Turini tanlang</option>
             <option value="IlmTown tushlik">IlmTown tushlik</option>
             <option value="Mobilagrafiya">Mobilagrafiya</option>
@@ -187,16 +187,11 @@
             <option value="Biznes Town - kommunal">Biznes Town - kommunal</option>
             <option value="Hodimlarni o'qitish uchun ">Hodimlarni o'qitish uchun </option>
         </select>
-        <!-- <input type="text"  required> -->
-
-        
-
-
 
         <button type="submit" id="submitButton"
             style="background-color: #4caf50; color: #fff; width: 100%; padding: 10px 40px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
             👉 Yuborish 👈 </button>
-        <div class="loader" id="loader" style="display: none;"></div>
+
     </form>
 
     <script>
@@ -205,6 +200,7 @@
             var formData = new FormData(this);
             var submitButton = document.getElementById("submitButton");
             var loader = document.getElementById("loader");
+            var successMessage = document.getElementById("successMessage");
             submitButton.disabled = true;
             loader.style.display = "block";
             fetch('https://script.google.com/macros/s/AKfycbzLyLdgAvqHD_RbW1Q5LTPO9Q2aBDQoFwmNJ-tHrw845F1fBqaxGzUaG7KPhZZljb1c/exec', {
@@ -215,17 +211,24 @@
                     if (!response.ok) {
                         throw new Error("Network response was not ok");
                     }
-
-
-
+                    // Clear the form inputs
+                    document.getElementById("surveyForm").reset();
+                    // Display the success message
+                    successMessage.style.display = "block";
                 })
                 .catch(error => {
                     console.error("Error:", error);
                 })
                 .finally(() => {
                     submitButton.disabled = false;
+                    loader.style.display
                     loader.style.display = "none";
                 });
+
+            // Hide the success message after a few seconds
+            setTimeout(function () {
+                successMessage.style.display = "none";
+            }, 5000); // Adjust the time as needed
         });
     </script>
 </body>
